@@ -20,4 +20,4 @@ jobs:
         
     - name: SSH into remote VM and run commands
       run: |
-        ssh root@167.99.66.1 "uptime && whoami && df -h"
+        ssh root@167.99.66.1 -p 3030 "uptime && whoami && df -h"
