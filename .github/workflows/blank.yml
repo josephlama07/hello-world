@@ -25,11 +25,11 @@ jobs:
     - name: Test SSH connection with verbose output
       run: |
         ssh -v -p 3030 -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} "echo 'test connection'"
-
-    - name: Deploy files via rsync
-      run: |
-        rsync -avz -e "ssh -p 3030" ./ root@${{ secrets.SERVER_IP }}:/var/www/skr/
         
     - name: SSH into remote VM and run commands
       run: |
         ssh root@${{ secrets.SERVER_IP }} -p 3030 "uptime && whoami && df -h"
+
+    - name: Deploy files via rsync
+      run: |
+        rsync -avz -e "ssh -p 3030" ./ root@${{ secrets.SERVER_IP }}:/var/www/skr/
