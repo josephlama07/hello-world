@@ -28,4 +28,4 @@ jobs:
         
     - name: SSH into remote VM and run commands
       run: |
-        ssh root@${{ secrets.SERVER_IP }} -p ${{ secrets.SSH_PORT }} "uptime && whoami && df -h"
+        ssh root@${{ secrets.SERVER_IP }} -p 3030 "uptime && whoami && df -h"
